@@ -41,6 +41,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # We want our CSP middleware before almost all other middleware since its security
+    # related
+    "csp.contrib.rate_limiting.RateLimitedCSPMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -118,3 +121,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# https://django-csp.readthedocs.io/en/latest/configuration.html
+CSP_DEFAULT_SRC = ["'self'"]
+# When DEBUG is on we don't require HTTPS on our resources because in a local environment
+# we generally don't have access to HTTPS. However, when DEBUG is off, such as in our
+# production environment, we want all our resources to load over HTTPS
+CSP_UPGRADE_INSECURE_REQUESTS = not DEBUG
+# For roughly 60% of the requests to our django server we should include the report URI.
+# This helps keep down the number of CSP reports sent from client web browsers
+CSP_REPORT_PERCENTAGE = 0.6
