@@ -52,12 +52,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'django_csp_example.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "django_csp_example/templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'django_csp_example.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
@@ -123,7 +123,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # https://django-csp.readthedocs.io/en/latest/configuration.html
-CSP_DEFAULT_SRC = ["'self'"]
+CSP_DEFAULT_SRC = ["'none'"]
 # When DEBUG is on we don't require HTTPS on our resources because in a local environment
 # we generally don't have access to HTTPS. However, when DEBUG is off, such as in our
 # production environment, we want all our resources to load over HTTPS

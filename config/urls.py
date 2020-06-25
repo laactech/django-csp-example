@@ -19,7 +19,7 @@ from django.urls import path
 from django_csp_example.core.views import HomeView, GoogleSlidesView
 
 urlpatterns = [
-    path('', HomeView.as_view()),
-    path('google-slides/', GoogleSlidesView.as_view()),
+    path('', HomeView.as_view(), name="index"),
+    path('google-slides/', GoogleSlidesView.as_view(), name="google_slides"),
     path('admin/', admin.site.urls),
 ]
