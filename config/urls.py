@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from django_csp_example.core.views import HomeView, GoogleSlidesView
+
 urlpatterns = [
+    path('', HomeView.as_view()),
+    path('google-slides/', GoogleSlidesView.as_view()),
     path('admin/', admin.site.urls),
 ]
