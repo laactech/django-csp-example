@@ -1,5 +1,8 @@
 # Django CSP Example
 
+Follow along in the [tutorial](https://www.laac.dev/blog/content-security-policy-using-django/)
+to implement a content security policy using Django.
+
 ## Project Set Up
 1. Clone the [github repo](https://github.com/laactech/pre-commit-config)
     * `git clone https://github.com/laactech/django-csp-example.git`
