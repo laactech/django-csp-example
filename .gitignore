@@ -56,7 +56,7 @@ node_modules/
 
 # virtual environments
 .env
-venv
+*venv*
 
 .hypothesis/
 
