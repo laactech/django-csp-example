@@ -4,7 +4,7 @@ Follow along in the [tutorial](https://www.laac.dev/blog/content-security-policy
 to implement a content security policy using Django.
 
 ## Project Set Up
-1. Clone the [github repo](https://github.com/laactech/pre-commit-config)
+1. Clone the github repo
     * `git clone https://github.com/laactech/django-csp-example.git`
 1. Create a virtual environment
     * `python3 -m venv csp_venv`
